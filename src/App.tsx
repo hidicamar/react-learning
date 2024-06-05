@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "./components/Button";
 import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
+import ExpandableText from "./components/ExpandableText";
 
 function App() {
     //const [game, setGame] = useState({
@@ -37,6 +38,22 @@ function App() {
 
     return (
         <>
+            <ExpandableText>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Consequatur aut non alias iusto, molestiae recusandae
+                asperiores, quam animi minus atque illum cumque modi accusamus
+                ipsam est! Minima odit explicabo laboriosam earum doloremque
+                harum quasi nemo officiis hic, magnam omnis ipsam nostrum
+                voluptas recusandae soluta dolores quisquam fugiat aperiam,
+                magni consectetur, atque at! Illum, porro quam. Molestiae quae
+                laboriosam natus praesentium fugit, facere sit, quasi suscipit
+                nemo provident enim quo odio tempora reiciendis dolore quia
+                repellendus? Reprehenderit, ad? Nisi mollitia quidem illum
+                dolorem voluptatem, cumque totam fuga incidunt nostrum.
+                Reiciendis repellendus sunt magnam repellat voluptate, rem
+                aliquid numquam inventore velit doloribus.
+            </ExpandableText>
+
             <ul className="divide-y divide-gray-100">
                 {cart.items.map((item, index) => (
                     <li className="py-3 bg-slate-300" key={item.id}>
@@ -44,7 +61,6 @@ function App() {
                     </li>
                 ))}
             </ul>
-
             <Button onClick={handleClick}>Change name</Button>
         </>
     );
