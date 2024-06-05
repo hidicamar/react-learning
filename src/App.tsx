@@ -4,6 +4,8 @@ import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import ExpandableText from "./components/ExpandableText";
 import Form from "./components/Form";
+import ExpenseList from "./expense-tracker/components/ExpenseList";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 
 function App() {
     //const [game, setGame] = useState({
@@ -37,33 +39,28 @@ function App() {
         });
     };
 
+    const [selectedCategory, setSelectedCategory] = useState("");
+
+    const [expenses, setExpenses] = useState([
+        { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+        { id: 2, description: "abc", amount: 11, category: "Utilities" },
+        { id: 3, description: "aad", amount: 12, category: "Utilities" },
+        { id: 4, description: "aae", amount: 13, category: "Utilities" },
+        { id: 5, description: "aaf", amount: 15, category: "Utilities" },
+    ]);
+
     return (
         <>
-        <Form />
-            <ExpandableText>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequatur aut non alias iusto, molestiae recusandae
-                asperiores, quam animi minus atque illum cumque modi accusamus
-                ipsam est! Minima odit explicabo laboriosam earum doloremque
-                harum quasi nemo officiis hic, magnam omnis ipsam nostrum
-                voluptas recusandae soluta dolores quisquam fugiat aperiam,
-                magni consectetur, atque at! Illum, porro quam. Molestiae quae
-                laboriosam natus praesentium fugit, facere sit, quasi suscipit
-                nemo provident enim quo odio tempora reiciendis dolore quia
-                repellendus? Reprehenderit, ad? Nisi mollitia quidem illum
-                dolorem voluptatem, cumque totam fuga incidunt nostrum.
-                Reiciendis repellendus sunt magnam repellat voluptate, rem
-                aliquid numquam inventore velit doloribus.
-            </ExpandableText>
+            <ExpenseFilter
+                onSelectCategory={(category) => setSelectedCategory(category)}
+            />
 
-            <ul className="divide-y divide-gray-100">
-                {cart.items.map((item, index) => (
-                    <li className="py-3 bg-slate-300" key={item.id}>
-                        {item.title}, {item.quantity}
-                    </li>
-                ))}
-            </ul>
-            <Button onClick={handleClick}>Change name</Button>
+            <ExpenseList
+                expenses={expenses}
+                onDelete={(id) =>
+                    setExpenses(expenses.filter((e) => e.id !== id))
+                }
+            ></ExpenseList>
         </>
     );
 }
