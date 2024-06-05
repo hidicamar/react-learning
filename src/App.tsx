@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
 
 function App() {
     //const [game, setGame] = useState({
@@ -38,6 +39,7 @@ function App() {
 
     return (
         <>
+        <Form />
             <ExpandableText>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Consequatur aut non alias iusto, molestiae recusandae
