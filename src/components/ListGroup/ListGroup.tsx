@@ -4,7 +4,6 @@ import "./ListGroup.css";
 interface Props {
     items: string[];
     heading: string;
-    // (item: string) => void
     onSelectItem: (item: string) => void;
 }
 

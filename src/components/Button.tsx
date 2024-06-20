@@ -4,11 +4,11 @@ interface Props {
     onClick?: () => void;
 }
 
-const Button = ({ children, variant, onClick }: Props) => {
+const Button = ({ children, onClick }: Props) => {
     return (
         <button
             type="button"
-            className="p-4 rounded-lg bg-blue-300 text-blue-800"
+            className="p-4 text-blue-800 bg-blue-300 rounded-lg"
             onClick={onClick}
         >
             {children}

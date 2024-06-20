@@ -1,5 +1,3 @@
-import { FormEvent, useRef, useState } from "react";
-import Button from "./Button";
 import { FieldValues, useForm } from "react-hook-form";
 
 interface FormData {
@@ -8,11 +6,6 @@ interface FormData {
 }
 
 const Form = () => {
-    // Uncontrolled controller
-    //const nameRef = useRef<HTMLInputElement>(null);
-    //const ageRef = useRef<HTMLInputElement>(null);
-    //const person = { name: "", age: 0 };
-
     const {
         register,
         handleSubmit,
@@ -22,26 +15,6 @@ const Form = () => {
     const handleFormSubmit = (data: FieldValues) => {
         console.log(data);
     };
-
-    //const [person, setPerson] = useState({
-    //    name: "",
-    //    age: "",
-    //});
-
-    //const handleFormSubmit = (event: FormEvent) => {
-    //event.preventDefault();
-    //console.log(person);
-
-    /*
-        if (nameRef.current !== null) {
-            person.name = nameRef.current.value;
-        }
-
-        if (ageRef.current !== null) {
-            person.age = parseInt(ageRef.current.value);
-        }
-        */
-    //};
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)} className="p-4">
@@ -53,10 +26,6 @@ const Form = () => {
                     Name
                 </label>
                 <input
-                    //onChange={(event) =>
-                    //    setPerson({ ...person, name: event.target.value })
-                    //}
-                    //value={person.name}
                     {...register("name", {
                         required: true,
                         minLength: 3,
